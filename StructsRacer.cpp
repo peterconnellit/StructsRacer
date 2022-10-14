@@ -44,7 +44,7 @@ int main()
 		cout << team3.teamName << "'s distance is: " << team3.distance << endl << "\n";
 	}
 
-	//array to store total distance variables
+	//array to store total distance variables for each racer
 	int totalDistances[3] = { team1.distance, team2.distance, team3.distance };
 	int n = sizeof(totalDistances) / sizeof(totalDistances[0]);
 
@@ -55,7 +55,7 @@ int main()
 	int winner = totalDistances[2];
 	int loser = totalDistances[0];
 
-	cout << "Highest distance travelled: " << winner << endl;
+	cout << "Farthest distance travelled: " << winner << endl;
 	cout << "Least distance travelled: " << loser << endl;
 
 
