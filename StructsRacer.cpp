@@ -1,20 +1,62 @@
-// StructsRacer.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#include <cstdlib>
 #include <iostream>
+#include <ctime>
+#include <algorithm>
+
+using namespace std;
+
+//new racer struct
+struct Racer
+{
+	string teamName;
+	int distance;
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	//declare new racers
+	Racer team1;
+	team1.teamName = "Red";
+	team1.distance = 0;
+
+	Racer team2;
+	team2.teamName = "Blue";
+	team2.distance = 0;
+
+	Racer team3;
+	team3.teamName = "Yellow";
+	team3.distance = 0;
+
+	//max hours of race
+	int MAX_HOURS = 5;
+
+	srand(time(0));
+
+	//for loop runs 5 times, crearing rand number for each racers distance to store in distance variable, then add to next iteration
+	for (int i = 0; i < MAX_HOURS; i++) {
+		team1.distance = (rand() % 10) + team1.distance;
+		cout << team1.teamName << "'s distance is: " << team1.distance << endl;
+
+		team2.distance = (rand() % 10) + team2.distance;
+		cout << team2.teamName << "'s distance is: " << team2.distance << endl;
+
+		team3.distance = (rand() % 10) + team3.distance;
+		cout << team3.teamName << "'s distance is: " << team3.distance << endl << "\n";
+	}
+
+	//array to store total distance variables
+	int totalDistances[3] = { team1.distance, team2.distance, team3.distance };
+	int n = sizeof(totalDistances) / sizeof(totalDistances[0]);
+
+	//sort array
+	sort(totalDistances,totalDistances + n);
+
+	//winner and loser from sorted array
+	int winner = totalDistances[2];
+	int loser = totalDistances[0];
+
+	cout << "Highest distance travelled: " << winner << endl;
+	cout << "Least distance travelled: " << loser << endl;
+
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
