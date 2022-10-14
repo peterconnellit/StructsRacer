@@ -28,9 +28,9 @@ int main()
 	team3.distance = 0;
 
 	//max hours of race
-	int MAX_HOURS = 5;
+	const int MAX_HOURS = 5;
 
-	srand(time(0));
+	srand((0));
 
 	//for loop runs 5 times, crearing rand number for each racers distance to store in distance variable, then add to next iteration
 	for (int i = 0; i < MAX_HOURS; i++) {
@@ -58,5 +58,5 @@ int main()
 	cout << "Farthest distance travelled: " << winner << endl;
 	cout << "Least distance travelled: " << loser << endl;
 
-
+	//still needs output to say the winner is...red or blue or yellow
 }
